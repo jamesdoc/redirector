@@ -1,0 +1,28 @@
+<section>
+  <header>
+    <h2>Account information</h2>
+    <a href="#" class="btn">Update account information</a>
+  </header>
+  <ul>
+    <li>Account name: <%=@account.account_name %></li>
+    <li>Host: <%=@account.hostname %></li>
+    <li>Fallback URL: <%=@account.default_fallback %></li>
+  </ul>
+</section>
+
+<section>
+  <header>
+    <h2>Users</h2>
+    <a href="#" class="btn">Invite new user</a>
+  </header>
+
+  <ul>
+    <% @account_users.each do |u| %>
+      <li>
+        <%= link_to u.email, user_path(u) %>
+
+      <% if u != @user %> –  <%= button_to "Delete", user_path(u), {method: :delete, class: "btn btn--text"}  %><% end %>
+      </li>
+    <% end %>
+  </ul>
+</section>

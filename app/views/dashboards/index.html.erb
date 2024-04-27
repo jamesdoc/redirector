@@ -1,0 +1,55 @@
+<h1>Links</h1>
+
+<section>
+  <h2>Create new link</h2>
+  <%= form_with model: @link do |form| %>
+
+    <%= form.hidden_field :redirect_type, value: "301" %>
+    <%= form.hidden_field :description %>
+
+    <% if @link.errors.any? %>
+      <div class="text-error">
+      <% @link.errors.full_messages.each do |msg| %>
+        <%= msg %>
+      <% end %>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="col">
+        <%= form.label :url, "Redirect to…" %>
+        <%= form.url_field :url, :value => @link.url || "https://" %>
+      </div>
+
+      <div class="col">
+        <%= form.label :token, "From #{@user.account.hostname}/…" %>
+        <%= form.text_field :token %>
+      </div>
+
+      <div class="col-2">
+        <br />
+        <%= form.submit "💾 Create Link" %>
+      </div>
+    </div>
+
+  <% end %>
+</section>
+
+<section>
+  <h2>Active links</h2>
+
+  <div class="row">
+    <% @links.each do |link| %>
+      <div class="col card">
+        <header>
+          <h4>/<%= link.token %></h4>
+        </header>
+        <p>➡️ <%= link.presentable_destination_url %></p>
+        <p><%= link.description %></p>
+        <footer>
+          <a href="<%= link_path(link) %>" class="button primary">Details</a>
+        </footer>
+      </div>
+    <% end %>
+  </div>
+</section>

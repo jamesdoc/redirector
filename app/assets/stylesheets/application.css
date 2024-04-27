@@ -1,0 +1,182 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ :root {
+  --brand-burntOrange: #A3320B;
+  --brand-licorice: #1F0812;
+  --brand-charcoal: #37515F;
+  --brand-ashGrey: #B0C0BC;
+  --brand-teaGreen: #C1EDCC;
+
+  --bg-color: #ffffff;
+  --bg-secondary-color: #f3f3f6;
+  --color-primary: #14854F;
+  --color-lightGrey: #d2d6dd;
+  --color-grey: #747681;
+  --color-darkGrey: #3f4144;
+  --color-error: #d43939;
+  --color-success: #28bd14;
+  --grid-maxWidth: 120rem;
+  --grid-gutter: 2rem;
+  --font-size: 1.6rem;
+  --font-color: #333333;
+  --font-family-sans: sans-serif;
+  --font-family-mono: monaco, "Consolas", "Lucida Console", monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+
+
+body {
+  color: var(--brand-licorice);
+  font-family: var(--font-family-sans);
+
+}
+
+.nav, .container {
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--brand-charcoal);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+
+  .brand {
+    color: var(--brand-burntOrange);
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+
+.row {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.text-error {
+  color: var(--color-error)
+}
+
+.card {
+  border: 1px solid var(--color-lightGrey);
+  border-radius: 0.25rem;
+  padding: 1rem;
+  width: 100%;
+
+  &:has(header) {
+    padding-top: 0;
+  }
+}
+
+section {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--brand-licorice);
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: var(--brand-teaGreen);
+  color: var(--brand-licorice);
+  padding: 0.5rem 0.75rem;
+  display: inline-block;
+  text-decoration: none;
+
+  &.btn--text {
+    display: inline-block;
+    border: none;
+    background: none;
+    padding: 0;
+    text-decoration: underline;
+    margin: 0;
+  }
+}
+
+form.button_to {
+  display: inline;
+}
+
+.msg {
+  border: 1px solid var(--color-grey);
+  border-radius: 0.25rem;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+
+.siteFooter {
+  margin-top: 1rem;
+  padding: 1rem 0;
+  background-color: var(--brand-charcoal);
+  color: var(--brand-teaGreen);
+}
+
+
+

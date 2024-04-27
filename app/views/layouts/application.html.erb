@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>URL Shortner</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📬</text></svg>">
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+    <header class="">
+      <nav class="nav">
+        <div class="nav-left">
+          <a class="brand" href="/dashboard">📬 Redirector</a>
+        </div>
+
+        <div class="nav-right">
+
+          <% if current_user %>
+            <div class="tabs">
+              <%= active_link_to "Dashboard", dashboard_path %>
+              <%= active_link_to "Configuration", config_path %>
+              <%= button_to "Sign Out", destroy_user_session_path, {method: :delete, class: "btn btn--text"}  %>
+            </div>
+          <% else %>
+          <%= link_to('Sign In', new_user_session_path) %>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <% if notice || alert %>
+        <div class="msg">
+          <% if notice %>
+          <p class="notice text-primary"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+          <p class="alert text-error"><%= alert %></p>
+          <% end %>
+        </div>
+      <% end %>
+    <%= yield %>
+    </main>
+
+    <footer class="siteFooter">
+      <div class="container">
+        <strong>Redirector</strong>: Goes somewhere, does something.
+      </div>
+    </footer>
+
+  </body>
+</html>

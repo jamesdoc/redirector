@@ -1,0 +1,12 @@
+<h2>Link: /<%= @link.token %></h2>
+
+<div>
+  <p><%= @link.presentable_origin_url %> ➡️ <%= @link.presentable_destination_url %></p>
+</div>
+
+<a target="_blank" rel="noopener" href="https://quickchart.io/qr?text=<%= @link.origin_url %>&size=2000">
+<img src="https://quickchart.io/qr?text=<%= @link.origin_url %>&format=svg" alt="QR code for <%= @link.url %>" />
+</a>
+
+<p>Test it: <%= link_to @link.presentable_origin_url, @link.origin_url, target: "_blank", rel: "noopener" %>
+</p>
